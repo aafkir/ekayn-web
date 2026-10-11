@@ -1,0 +1,2 @@
+import Link from 'next/link';
+export function Footer() { return <footer><Link href="/" className="brand brand-image"><img src="/assets/logo.png" width="170" alt="Ekayn" /><span className="brand-tagline">BIJOUX D’INSPIRATION TRADITIONNELLE</span></Link><p>Des détails à porter.</p><Link href="/livraison-et-retours">Livraison & retours</Link><Link href="/contact">Contacter</Link><small>© {new Date().getFullYear()} Ekayn</small></footer>; }

@@ -1,0 +1,5 @@
+'use client';
+import Link from 'next/link';
+import { useCart } from './store/cart-context';
+import type { Product } from '@/lib/products';
+export function ProductCard({ product }: { product: Product }) { const { add } = useCart(); return <article><Link className="product-link" href={`/produits/${product.slug}`} aria-label={`Voir ${product.name}`}><div className="product-image"><span className="ref">{product.reference}</span><img src={product.image} loading="lazy" width="800" height="1000" alt={product.alt} /></div><div className="product-title"><h3>{product.name}</h3></div></Link><p>{product.shortDescription ?? product.description}</p><p className="product-card-price">{(product.priceCents / 100).toLocaleString('fr-FR', { style: 'currency', currency: 'EUR' })}</p><button className="add-cart primary" onClick={(event) => add(product.id, 1, undefined, event.currentTarget)}>Ajouter au panier <span>+</span></button><Link className="product-order" href={`/contact?produit=${product.slug}`}>Contacter à propos de ce produit <span>↗</span></Link></article>; }
